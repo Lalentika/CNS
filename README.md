@@ -3,7 +3,7 @@
 
 ## AIM:
 
-To implement the simple substitution technique named Caesar cipher using C language.
+To implement the simple substitution technique named Caesar cipher using python programming.
 
 ## DESCRIPTION:
 
@@ -28,7 +28,43 @@ becomes C. To change a message back, each letter is replaced by the one three be
 
 
 PROGRAM :-
+def caesar_encrypt(text, shift):
+    encrypted_text = ""
+  
+    for char in text:
+        if char.isalpha():
+          
+            start = 65 if char.isupper() else 97
+            encrypted_text += chr((ord(char) - start + shift) % 26 + start)
+        else:
+            encrypted_text += char 
+    
+    return encrypted_text
 
+def caesar_decrypt(text, shift):
+    decrypted_text = ""
+    
+    for char in text:
+        if char.isalpha():
+            
+            start = 65 if char.isupper() else 97
+            decrypted_text += chr((ord(char) - start - shift) % 26 + start)
+        else:
+            decrypted_text += char  # Non-alphabet characters are not decrypted
+    
+    return decrypted_text
 
+if __name__ == "_main_":
+    text = input("Enter the text: ")
+    shift = int(input("Enter the shift value: "))
 
+    encrypted_text = caesar_encrypt(text, shift)
+    print(f"Encrypted Text: {encrypted_text}")
+ 
+    decrypted_text = caesar_decrypt(encrypted_text, shift)
+    print(f"Decrypted Text: {decrypted_text}")
+
+    
 OUTPUT :-
+![Image 2025-03-20 at 8 59 11 AM](https://github.com/user-attachments/assets/488b9a51-e07a-4bf8-9bcc-3f53e222c6ff)
+
